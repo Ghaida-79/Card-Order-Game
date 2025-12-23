@@ -10,6 +10,7 @@ body {
 header {
   background-color: #ebeaea;
   padding: 20px 20px 5px 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 h2 {
@@ -108,4 +109,5 @@ ul {
   .info {
     font-size: 20px;
   }
+
 }
