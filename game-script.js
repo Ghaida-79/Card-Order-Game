@@ -33,11 +33,10 @@ cards.forEach(card => {
         localStorage.setItem("bestScore", mistakes);
         bestText.innerHTML = mistakes;
         bestScore = mistakes;
-        cards.sort(() => Math.random() - 0.5);
       }
       mistakes = 0;
       mistakesText.innerHTML = 0;
-      cards.sort(() => Math.random() - 0.5);
+      shuffleCards();
       resetGame();
     }
   }
@@ -46,4 +45,9 @@ cards.forEach(card => {
 function resetGame() {
   expected = 1;
   cards.forEach(card => card.className = "card");
+}
+
+function shuffleCards () {
+  cards.sort(() => Math.random() - 0.5);
+  cards.forEach(card => game.appendChild(card));
 }
