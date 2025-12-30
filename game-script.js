@@ -7,7 +7,7 @@ cards.forEach(card => game.appendChild(card));
 let expected = 1;
 let mistakes = 0;
 
-let attemptsText = document.querySelector(".attempts");
+let mistakesText = document.querySelector(".mistakes");
 let bestText = document.querySelector(".best");
 
 let bestScore = localStorage.getItem("bestScore");
@@ -22,7 +22,7 @@ cards.forEach(card => {
       expected++;
     } else {
       mistakes++;
-      attemptsText.innerHTML = mistakes;
+      mistakesText.innerHTML = mistakes;
       resetGame();
       return;
     }
@@ -33,9 +33,11 @@ cards.forEach(card => {
         localStorage.setItem("bestScore", mistakes);
         bestText.innerHTML = mistakes;
         bestScore = mistakes;
+        cards.sort(() => Math.random() - 0.5);
       }
       mistakes = 0;
-      attemptsText.innerHTML = 0;
+      mistakesText.innerHTML = 0;
+      cards.sort(() => Math.random() - 0.5);
       resetGame();
     }
   }
